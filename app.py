@@ -2,6 +2,16 @@ import os
 import json
 import streamlit as st
 
+st.set_page_config(
+    page_title="Customer Support AI",
+    page_icon="🤖",
+    layout="wide"
+)
+
+if "GROQ_API_KEY" not in st.secrets:
+    st.error("GROQ_API_KEY is not configured in Streamlit Secrets.")
+    st.stop()
+
 from crewai import Crew, Task
 
 from agent import customer_support_agent
