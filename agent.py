@@ -10,7 +10,8 @@ api_key = st.secrets["GROQ_API_KEY"]
 
 llm = LLM(
     model="groq/openai/gpt-oss-120b",
-    api_key=api_key
+    api_key=api_key,
+    temperature=0.2
 )
 
 
