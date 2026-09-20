@@ -46,7 +46,7 @@ customer_support_agent = Agent(
     llm=llm,
 
     verbose=True,
-    allow_delegation=False,
+    use_system_prompt=False,
 
     allow_delegation=False
 )
