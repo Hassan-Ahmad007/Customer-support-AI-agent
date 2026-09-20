@@ -1,4 +1,5 @@
-crewai
+crewai==1.15.10
+crewai-tools==1.15.10
 streamlit
 faiss-cpu
 sentence-transformers
