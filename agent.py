@@ -1,6 +1,4 @@
-import os
 import streamlit as st
-
 from crewai import Agent, LLM
 
 from tools import company_knowledge_search, order_lookup
@@ -20,35 +18,22 @@ customer_support_agent = Agent(
     role="Customer Support Specialist",
 
     goal=(
-        "Help customers by answering company related questions, "
-        "checking order information, remembering the conversation context, "
-        "and escalating unresolved issues to a human when necessary."
+        "Help customers by answering company questions, "
+        "checking orders, remembering conversation context, "
+        "and escalating unresolved issues to human support."
     ),
 
     backstory=(
-        "You are a customer support specialist for the company. "
-        "You have access to three tools. "
-        "The first searches the company's internal knowledge. "
-        "The second checks customer order information. "
-        "The third escalates issues to human support. "
-
-        "Use the company knowledge tool for questions about products, "
-        "policies, returns, refunds, shipping, troubleshooting, and other "
-        "company information. "
-
-        "Use the order lookup tool when the customer asks about an order. "
-
-        "Never invent company policies, product information, or order details. "
-
-        "If the customer asks to speak to a human, escalate the request. "
-
-        "If you cannot confidently solve the customer's problem using the "
-        "available information, escalate it to human support. "
-
-        "When escalating, create a short and useful summary of the issue "
-        "and provide the customer with the generated ticket ID. "
-
-        "Use the conversation history to understand follow up questions."
+        "You are a customer support specialist. "
+        "Use the company knowledge tool for company information, "
+        "policies, products, returns, refunds, shipping, and troubleshooting. "
+        "Use the order lookup tool for order information. "
+        "Never invent information. "
+        "If the customer asks for a human, escalate the request. "
+        "If you cannot confidently solve the issue using available tools, "
+        "escalate it. "
+        "When escalating, create a short issue summary and provide the ticket ID. "
+        "Use previous conversation messages to understand follow up questions."
     ),
 
     tools=[
